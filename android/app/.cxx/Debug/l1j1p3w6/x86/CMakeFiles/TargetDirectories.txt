@@ -1,0 +1,2 @@
+C:/Users/pc/StudioProjects/nihao/android/app/.cxx/Debug/l1j1p3w6/x86/CMakeFiles/edit_cache.dir
+C:/Users/pc/StudioProjects/nihao/android/app/.cxx/Debug/l1j1p3w6/x86/CMakeFiles/rebuild_cache.dir
