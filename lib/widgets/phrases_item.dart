@@ -14,18 +14,37 @@ class PhrasesItem extends StatefulWidget {
 class _PhrasesItemState extends State<PhrasesItem> {
   bool isPlaying = false;
 
+
+  Future<void> _playAudio() async {
+    setState(() {
+      isPlaying = true;
+    });
+
+
+    await widget.item.playAudio();
+
+    if (mounted) {
+      setState(() {
+        isPlaying = false;
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
 
     return Container(
-      color: widget.color,
-      height: screenHeight * 0.15,
       width: double.infinity,
-      padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.05),
+      color: widget.color,
+      padding: EdgeInsets.symmetric(
+        vertical: screenHeight * 0.015,
+        horizontal: screenWidth * 0.05,
+      ),
       child: Row(
         children: [
+          // Text column for English and Chinese names
           Expanded(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -50,21 +69,22 @@ class _PhrasesItemState extends State<PhrasesItem> {
               ],
             ),
           ),
+
+          // Spacing between text and icon button
+          SizedBox(width: screenWidth * 0.05),
+
+          // Play/Pause button with animation
           IconButton(
-            onPressed: () {
-              setState(() {
-                isPlaying = !isPlaying;
-              });
-              widget.item.playAudio();
-            },
+            onPressed: _playAudio,
             icon: AnimatedSwitcher(
               duration: Duration(milliseconds: 300),
-              transitionBuilder: (child, animation) => ScaleTransition(scale: animation, child: child),
+              transitionBuilder: (child, animation) =>
+                  ScaleTransition(scale: animation, child: child),
               child: Icon(
-                isPlaying ? Icons.pause : Icons.play_arrow,
+                isPlaying ? Icons.pause_circle_filled : Icons.play_circle_fill,
                 key: ValueKey<bool>(isPlaying),
                 color: isPlaying ? Colors.green : Colors.white,
-                size: screenWidth * 0.08,
+                size: screenWidth * 0.08, // Responsive size
               ),
             ),
           ),

@@ -28,9 +28,9 @@ class Phrases extends StatelessWidget {
   Widget build(BuildContext context) {
     return  Scaffold(
         appBar: AppBar(
-          backgroundColor: Color(0xffF5E1DA ),
-          foregroundColor: Colors.black,
-          title: Text('Phrases',style: TextStyle(color: Colors.black,fontWeight:FontWeight.bold),),
+          backgroundColor: Color(0xff51C38F ),
+          foregroundColor: Colors.white,
+          title: Text('Phrases',style: TextStyle(color: Colors.white,fontWeight:FontWeight.bold),),
         ),
         body: ListView.builder(
           itemCount: phrases.length,

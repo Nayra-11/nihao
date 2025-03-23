@@ -11,8 +11,8 @@ class CategoryWidget extends StatelessWidget {
     required this.page,
     required this.size,
     required this.animation,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

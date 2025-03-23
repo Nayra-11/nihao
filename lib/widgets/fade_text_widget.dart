@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class FadeTextWidget extends StatelessWidget {
   final Animation<double> animation;
 
-  const FadeTextWidget({required this.animation, Key? key}) : super(key: key);
+  const FadeTextWidget({required this.animation, super.key});
 
   @override
   Widget build(BuildContext context) {

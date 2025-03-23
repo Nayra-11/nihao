@@ -21,12 +21,12 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
     super.initState();
     _controller = AnimationController(
       vsync: this,
-      duration: Duration(seconds: 5),
+      duration: const Duration(seconds: 5),
     )..forward();
 
     _animation = Tween<Offset>(
-      begin: Offset(0, 1),
-      end: Offset(0, 0),
+      begin: const Offset(0, 1),
+      end: const Offset(0, 0),
     ).animate(CurvedAnimation(parent: _controller, curve: Curves.easeOut));
   }
 
@@ -39,20 +39,76 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
-    double imageSize = screenWidth * 0.45;
+    double screenHeight = MediaQuery.of(context).size.height;
+    double imageSize = screenWidth * 0.4;
 
     return Scaffold(
-      body: Container(
-        color: Colors.white,
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Row(children: [CategoryWidget(imagePath: 'assets/images/photo/family.png', page: Familly(), size: imageSize, animation: _animation)]),
-              Row(mainAxisAlignment: MainAxisAlignment.end, children: [CategoryWidget(imagePath: 'assets/images/photo/colors.png', page: ColorPage(), size: imageSize, animation: _animation)]),
-              Row(children: [CategoryWidget(imagePath: 'assets/images/photo/numbers.png', page: Numbers(), size: imageSize, animation: _animation)]),
-              Row(mainAxisAlignment: MainAxisAlignment.end, children: [CategoryWidget(imagePath: 'assets/images/photo/phases.png', page: Phrases(), size: imageSize, animation: _animation)]),
-            ],
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: ConstrainedBox(
+            constraints: BoxConstraints(
+              minHeight: screenHeight,
+            ),
+            child: IntrinsicHeight(
+              child: Container(
+                width: screenWidth,
+                color: Colors.white,
+                padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.05),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        CategoryWidget(
+                          imagePath: 'assets/images/photo/family.png',
+                          page: Familly(),
+                          size: imageSize,
+                          animation: _animation,
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: screenHeight * 0.02),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        CategoryWidget(
+                          imagePath: 'assets/images/photo/colors.png',
+                          page: ColorPage(),
+                          size: imageSize,
+                          animation: _animation,
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: screenHeight * 0.02),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        CategoryWidget(
+                          imagePath: 'assets/images/photo/numbers.png',
+                          page: Numbers(),
+                          size: imageSize,
+                          animation: _animation,
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: screenHeight * 0.02),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        CategoryWidget(
+                          imagePath: 'assets/images/photo/phases.png',
+                          page: Phrases(),
+                          size: imageSize,
+                          animation: _animation,
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            ),
           ),
         ),
       ),

@@ -3,8 +3,16 @@ import 'package:audioplayers/audioplayers.dart';
 class AudioModel {
   final AudioPlayer _audioPlayer = AudioPlayer();
 
-  void playWelcomeAudio() async {
-    await _audioPlayer.play(AssetSource('audio/welcome.mp3'));
+  Future<void> playWelcomeAudio() async {
+    try {
+      await _audioPlayer.play(AssetSource('sounds/phases/hi.mp3'));
+    } catch (e) {
+      print("Error playing audio: $e");
+    }
+  }
+
+  Future<void> stopAudio() async {
+    await _audioPlayer.stop();
   }
 
   void dispose() {

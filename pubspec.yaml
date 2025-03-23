@@ -36,11 +36,27 @@ dependencies:
   cupertino_icons: ^1.0.8
   audioplayers: ^6.1.2
   flutter_launcher_icons: ^0.13.1
+  flutter_native_splash: ^2.3.5
 
 flutter_launcher_icons:
     android: true
     ios: true
     image_path: "assets/images/photo/entry.png"
+
+
+
+flutter_native_splash:
+  color: "#000000"
+  image: assets/images/photo/icon.png
+  android: true
+  ios: true
+  fullscreen: true
+  android_12:
+    image: assets/images/photo/icon.png
+    color: "#000000"
+
+
+
 
 
 

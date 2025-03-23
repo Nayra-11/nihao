@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:audioplayers/audioplayers.dart';
 import 'package:nihao/screens/home.dart';
 import 'package:nihao/screens/splash_screen.dart';
 
@@ -9,6 +8,8 @@ void main() {
 }
 
 class Nihao extends StatelessWidget {
+  const Nihao({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

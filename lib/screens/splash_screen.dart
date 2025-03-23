@@ -3,6 +3,8 @@ import '../models/audio_model.dart';
 import '../widgets/fade_text_widget.dart';
 
 class SplashScreen extends StatefulWidget {
+  const SplashScreen({super.key});
+
   @override
   _SplashScreenState createState() => _SplashScreenState();
 }
@@ -47,27 +49,31 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
 
   @override
   Widget build(BuildContext context) {
-    double screenWidth = MediaQuery.of(context).size.width;
-    double screenHeight = MediaQuery.of(context).size.height;
-
     return Scaffold(
       backgroundColor: Colors.white,
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            SizedBox(
-              width: screenWidth * 0.3,
-              height: screenHeight * 0.2,
-              child: Image.asset(
-                'assets/images/photo/entry.png',
-                fit: BoxFit.contain,
-              ),
+      body: LayoutBuilder(
+        builder: (context, constraints) {
+          double screenWidth = constraints.maxWidth;
+          double screenHeight = constraints.maxHeight;
+
+          return Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SizedBox(
+                  width: screenWidth * 0.5,
+                  height: screenHeight * 0.3,
+                  child: Image.asset(
+                    'assets/images/photo/entry.png',
+                    fit: BoxFit.contain,
+                  ),
+                ),
+                const SizedBox(height: 20),
+                FadeTextWidget(animation: _fadeAnimation),
+              ],
             ),
-            const SizedBox(height: 20),
-            FadeTextWidget(animation: _fadeAnimation),
-          ],
-        ),
+          );
+        },
       ),
     );
   }
