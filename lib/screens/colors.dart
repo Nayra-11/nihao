@@ -26,7 +26,7 @@ class ColorPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return  Scaffold(
         appBar: AppBar(
-          backgroundColor: Color(0xffF9CD9E ),
+          backgroundColor: Color(0xffF9bD9E ),
           foregroundColor: Colors.white,
           title: Text('Colors',style: TextStyle(color: Colors.white,fontWeight:FontWeight.bold),),
         ),

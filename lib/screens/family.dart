@@ -24,7 +24,7 @@ Familly({super.key});
   Widget build(BuildContext context) {
     return  Scaffold(
       appBar: AppBar(
-        backgroundColor: Color(0xffFB7EA0 ),
+        backgroundColor: Color(0xffFB8EA0 ),
         foregroundColor: Colors.white,
         title: Text('Family',style: TextStyle(color: Colors.white,fontWeight:FontWeight.bold),),
       ),

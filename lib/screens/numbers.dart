@@ -26,7 +26,7 @@ class Numbers extends StatelessWidget {
   Widget build(BuildContext context) {
     return  Scaffold(
         appBar: AppBar(
-          backgroundColor: Color(0xff31BCA5 ),
+          backgroundColor: Color(0xff31CCA5 ),
           foregroundColor: Colors.white,
           title: Text('Numbers',style: TextStyle(color: Colors.white,fontWeight:FontWeight.bold),),
         ),

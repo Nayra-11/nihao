@@ -28,7 +28,7 @@ class Phrases extends StatelessWidget {
   Widget build(BuildContext context) {
     return  Scaffold(
         appBar: AppBar(
-          backgroundColor: Color(0xff51C38F ),
+          backgroundColor: Color(0xff51B38F ),
           foregroundColor: Colors.white,
           title: Text('Phrases',style: TextStyle(color: Colors.white,fontWeight:FontWeight.bold),),
         ),
