@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/images/photo/entry.png" alt="NiHao Logo" width="200"/>
+  <img src="assets/images/photo/icon.png" alt="NiHao Logo" width="200"/>
 </p>
 
 ---
