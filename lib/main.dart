@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:nihao/screens/home.dart';
 import 'package:nihao/screens/splash_screen.dart';
 
-
+//main
 void main() {
   runApp(Nihao());
 }
